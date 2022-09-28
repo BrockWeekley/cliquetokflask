@@ -16,6 +16,12 @@ def return_videos():
     response = {
         "urls": []
     }
+
+    videos = os.listdir("videos/")
+    if len(videos) > 0:
+        response["urls"] = videos
+        return response
+
     args = request.args
     count = int(args.get("count", 1))
     offset = int(args.get("offset", 0))
